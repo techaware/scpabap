@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZRAH_GIT_STRING_REVERSE</CLSNAME>
+    <CLSNAME>ZRAH_GIT_LONGEST_SUBSTRING</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>String reversal</DESCRIPT>
+    <DESCRIPT>Longest substring without repeatition</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

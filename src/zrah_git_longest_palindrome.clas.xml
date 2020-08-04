@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZRAH_GIT_MEETING_ROOMS</CLSNAME>
+    <CLSNAME>ZRAH_GIT_LONGEST_PALINDROME</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Calculate number of meeting rooms required</DESCRIPT>
+    <DESCRIPT>Find longest palindrome in a string</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
