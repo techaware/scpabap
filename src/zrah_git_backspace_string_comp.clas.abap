@@ -43,4 +43,4 @@ CLASS zrah_git_backspace_string_comp IMPLEMENTATION.
     endif.
   ENDMETHOD.
 
-ENDCLASS.
+ENDCLASS..
