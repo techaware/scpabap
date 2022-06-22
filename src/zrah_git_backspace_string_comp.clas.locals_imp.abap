@@ -1,27 +1,41 @@
 *"* use this source file for the definition and implementation of
 *"* local helper classes, interface definitions and type
 *"* declarations
-class stack DEFINITION
-final
-create PUBLIC.
+CLASS stack DEFINITION
+FINAL
+CREATE PUBLIC.
 
-PUBLIC SECTION.
-METHODS:
-    constructor IMPORTING initial_string type string OPTIONAL,
-    push IMPORTING element type c,
-    pop,
-    get RETURNING VALUE(string) type string .
-PROTECTED SECTION.
-PRIVATE SECTION.
-    data: s type string,
-          h type i.         "stack height
+  PUBLIC SECTION.
+    METHODS:
+      constructor IMPORTING initial_string TYPE string OPTIONAL,
+      get RETURNING VALUE(string) TYPE string .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+    DATA: s TYPE string,
+          h TYPE i.         "stack height
+    METHODS:
+      push IMPORTING element TYPE c,
+      pop.
 
 ENDCLASS.
 
-class stack IMPLEMENTATION.
+CLASS stack IMPLEMENTATION.
   METHOD constructor.
-    s = initial_string.
-    h = strlen( s ).
+
+    data: i type i,
+          c type c.
+
+*   build the stack for the initial string
+    while i < strlen( initial_string ).
+        c = initial_string+i(1).
+        if c = '#'.
+            me->pop(  ).
+        else.
+            me->push( c ).
+        endif.
+        i = i + 1.
+    ENDWHILE.
+
   ENDMETHOD.
 
   METHOD get.
@@ -29,9 +43,9 @@ class stack IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD pop.
-    if h > 0.
-        h = h - 1.
-    endif.
+    IF h > 0.
+      h = h - 1.
+    ENDIF.
 
     s = s(h).
 

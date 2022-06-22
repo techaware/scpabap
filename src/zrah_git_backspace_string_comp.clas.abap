@@ -19,10 +19,10 @@ ENDCLASS.
 
 CLASS zrah_git_backspace_string_comp IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
-      data: A type string value 'a#c',
-            B type string value 'b'.
+      data: A type string value 'a#cs#b',
+            B type string value 'k#dsdd###b'.
 
-    out->write( |A and B are equal: { compare( A = a B = b ) }| ).
+    out->write( | A and B are { cond string( let z = compare( A = a B = b ) in when z = abap_true then 'equal' else 'not equal' ) } | ).
   ENDMETHOD.
 
   METHOD compare.
@@ -32,28 +32,9 @@ CLASS zrah_git_backspace_string_comp IMPLEMENTATION.
           j type i,
           c type c.
 
-    astack = new #( ).
-    bstack = new #( ).
+    astack = new #( A ).
+    bstack = new #( B ).
 
-    while i < strlen( A ).
-        c = A+i(1).
-        if c = '#'.
-            astack->pop(  ).
-        else.
-            astack->push( c ).
-        endif.
-        i = i + 1.
-    ENDWHILE.
-
-     while j < strlen( B ).
-        c = B+j(1).
-        if  c = '#'.
-            bstack->pop(  ).
-        else.
-            bstack->push( c ).
-        endif.
-        j = j + 1.
-    ENDWHILE.
 
     if astack->get( ) = bstack->get( ).
         equal = abap_true.
