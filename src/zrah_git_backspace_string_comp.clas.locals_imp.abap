@@ -52,8 +52,10 @@ CLASS stack IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD push.
-    h = h + 1.
-    s = |{ s }{ element }|.
+    if element NE '#'.
+        h = h + 1.
+        s = |{ s }{ element }|.
+    endif.
   ENDMETHOD.
 
 ENDCLASS.
