@@ -7,10 +7,11 @@ methods:
     push importing iv_char type string,
     pop importing iv_char type string,
     get RETURNING VALUE(rv_char) type string,
-    get_height returning value(rv_height) type i.
+    get_valid returning value(rv_valid) type abap_boolean.
 
 private section.
-data: gv_stack type string.
+data: gv_stack type string,
+      gv_invalid type abap_boolean.
 
 
 endclass.
@@ -29,7 +30,10 @@ or ( get( ) eq '{' and iv_char eq '}' )
 or ( get( ) eq '[' and iv_char eq ']' ) .
     data(lv_height) = strlen( gv_stack ) - 1.
     gv_stack = gv_stack(lv_height).
+else.
+    gv_invalid = abap_true.
 endif.
+
 endmethod.
 
 method get.
@@ -39,7 +43,10 @@ method get.
     endif.
 endmethod.
 
-method get_height.
-    rv_height = strlen( gv_stack ).
+method get_valid.
+
+
+    rv_valid = xsdbool( strlen( gv_stack ) = 0 AND  gv_invalid = abap_false ).
+
 endmethod.
 endclass.

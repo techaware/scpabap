@@ -45,14 +45,12 @@ CLASS zrah_git_valid_parentheses IMPLEMENTATION.
 
     endwhile.
 
-    if lo_stack->get_height( ) eq 0.
-        rv_is_valid = abap_true.
-    endif.
+    rv_is_valid = lo_stack->get_valid( ).
 
   ENDMETHOD.
 
   METHOD if_oo_adt_classrun~main.
-    out->write( is_valid( '()[]}' ) ).
+    out->write( is_valid( '((((([]){}))))' ) ).
   ENDMETHOD.
 
   method is_open.
